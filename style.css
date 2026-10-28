@@ -37,7 +37,7 @@ a {
             rgba(25, 27, 25, 0.72),
             rgba(25, 27, 25, 0.78)
         ),
-        linear-gradient(135deg, #34433e, #171c1a);
+        linear-gradient(135deg, #172A52, #0B132B);
 
     color: #fff;
     display: flex;
@@ -212,6 +212,7 @@ a {
    TAMNA SEKCIJA
 ========================= */
 
+
 .dark-section {
     width: 100%;
     max-width: none;
@@ -219,8 +220,10 @@ a {
     padding-left: 5%;
     padding-right: 5%;
 
-    background: #202522;
+    background: #101B3D;
     color: #eeeae0;
+}
+
 }
 
 .dark-section .section-title {
