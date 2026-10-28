@@ -1,0 +1,833 @@
+/* =========================
+   OSNOVNE POSTAVKE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f2eee6;
+    color: #25221e;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(25, 27, 25, 0.72),
+            rgba(25, 27, 25, 0.78)
+        ),
+        linear-gradient(135deg, #34433e, #171c1a);
+
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 28px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.logo {
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #e9e5dc;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d3a85f;
+}
+
+
+/* =========================
+   HERO SADRŽAJ
+========================= */
+
+.hero-content {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+
+    padding: 100px 0;
+}
+
+.subtitle,
+.category {
+    color: #c59b57;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 850px;
+
+    margin: 20px 0;
+
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    font-weight: normal;
+}
+
+.hero-content > p:not(.subtitle) {
+    max-width: 650px;
+
+    color: #d8d5cd;
+    font-size: 19px;
+    margin-bottom: 35px;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border: 1px solid #c59b57;
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #c59b57;
+    color: #1e211f;
+}
+
+
+/* =========================
+   SEKCIJE
+========================= */
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 110px 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 25px;
+
+    margin-bottom: 70px;
+
+    border-bottom: 1px solid #cfc7b9;
+    padding-bottom: 20px;
+}
+
+.section-title span {
+    color: #b78c4d;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    font-weight: normal;
+}
+
+
+/* =========================
+   UVOD
+========================= */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 90px;
+}
+
+.lead {
+    font-size: 26px;
+    line-height: 1.5;
+}
+
+.intro-grid p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TAMNA SEKCIJA
+========================= */
+
+.dark-section {
+    width: 100%;
+    max-width: none;
+
+    padding-left: 5%;
+    padding-right: 5%;
+
+    background: #202522;
+    color: #eeeae0;
+}
+
+.dark-section .section-title {
+    border-color: #4a4e49;
+}
+
+.light h2 {
+    color: #f3eee5;
+}
+
+
+/* =========================
+   KAZALIŠTE
+========================= */
+
+.building-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+.building-image {
+    min-height: 570px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(37, 32, 27, 0.35),
+            rgba(37, 32, 27, 0.75)
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #706456 0,
+            #706456 3px,
+            #8c7e6e 3px,
+            #8c7e6e 8px
+        );
+
+    border: 8px solid #3c413d;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.image-label {
+    padding: 30px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.building-info h3,
+.plan-section h3,
+.river-intro h3,
+.plan-text h3 {
+    margin: 15px 0 25px;
+
+    font-size: 38px;
+    line-height: 1.15;
+    font-weight: normal;
+}
+
+.building-info p {
+    color: #c9c7c0;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   ČINJENICE
+========================= */
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 45px;
+
+    border-top: 1px solid #4c504c;
+}
+
+.fact {
+    padding: 20px 10px;
+
+    border-right: 1px solid #4c504c;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fact:last-child {
+    border-right: none;
+}
+
+.fact strong {
+    color: #c59b57;
+    font-size: 24px;
+}
+
+.fact span {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #bdbbb5;
+}
+
+
+/* =========================
+   NACRT
+========================= */
+
+.plan-section {
+    margin-top: 120px;
+
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 100px;
+
+    align-items: center;
+}
+
+.plan {
+    background: #ded6c7;
+    color: #272621;
+
+    padding: 25px;
+
+    border: 1px solid #9e9484;
+}
+
+.plan-title {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.plan-drawing {
+    min-height: 350px;
+
+    position: relative;
+
+    border: 2px solid #655f55;
+
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 70px 1fr 60px;
+}
+
+.stage {
+    grid-column: 1 / 4;
+
+    background: #c9c0af;
+
+    border-bottom: 2px solid #655f55;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.side-room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    writing-mode: vertical-rl;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+}
+
+.left {
+    border-right: 2px solid #655f55;
+}
+
+.right {
+    border-left: 2px solid #655f55;
+}
+
+.audience {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 5px;
+
+    padding: 30px;
+
+    font-size: 13px;
+}
+
+.audience span {
+    border: 1px solid #756c5e;
+    padding: 6px;
+}
+
+.entrance {
+    grid-column: 1 / 4;
+
+    border-top: 2px solid #655f55;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+}
+
+
+/* =========================
+   MLINOVI
+========================= */
+
+.river-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+
+    margin-bottom: 70px;
+}
+
+.river-intro > p {
+    font-size: 19px;
+}
+
+.mills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mill-card {
+    padding: 45px;
+
+    background: #e6dfd3;
+
+    border-top: 5px solid #65756d;
+
+    position: relative;
+}
+
+.mill-number {
+    font-family: Arial, sans-serif;
+    color: #b78c4d;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.mill-content h3 {
+    font-size: 30px;
+    font-weight: normal;
+
+    margin: 25px 0 15px;
+}
+
+.mill-content p {
+    margin-bottom: 30px;
+}
+
+.dimensions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid #c5bcad;
+}
+
+.dimensions div {
+    padding: 20px 10px;
+
+    border-right: 1px solid #c5bcad;
+}
+
+.dimensions div:last-child {
+    border-right: none;
+}
+
+.dimensions span {
+    display: block;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    color: #777066;
+
+    margin-bottom: 8px;
+}
+
+.dimensions strong {
+    font-size: 12px;
+}
+
+
+/* =========================
+   NACRT MLINA
+========================= */
+
+.mill-plan {
+    margin-top: 80px;
+
+    padding: 60px;
+
+    background: #29312d;
+    color: #eeeae0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+.plan-text p:not(.category) {
+    color: #c5c6c0;
+}
+
+.mill-drawing {
+    min-height: 350px;
+
+    position: relative;
+
+    border: 1px solid #606862;
+
+    overflow: hidden;
+
+    background: #343c38;
+}
+
+.mill-building {
+    width: 230px;
+    height: 190px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 35px;
+
+    transform: translateX(-50%);
+
+    background: #877866;
+
+    border: 5px solid #c0ad91;
+}
+
+.roof {
+    width: 0;
+    height: 0;
+
+    position: absolute;
+
+    left: -15px;
+    top: -75px;
+
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 80px solid #5d5145;
+}
+
+.mill-window {
+    width: 30px;
+    height: 40px;
+
+    position: absolute;
+
+    top: 40px;
+    left: 45px;
+
+    background: #333a36;
+
+    border: 3px solid #c5b79f;
+}
+
+.mill-window.second {
+    left: auto;
+    right: 45px;
+}
+
+.mill-door {
+    width: 45px;
+    height: 70px;
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #4d453c;
+}
+
+.water-channel {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    background: #496c70;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #d8e3df;
+}
+
+.water-wheel {
+    position: absolute;
+
+    right: 60px;
+    bottom: 42px;
+
+    width: 70px;
+    height: 70px;
+
+    border: 5px solid #bdac91;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+
+/* =========================
+   ZAKLJUČAK
+========================= */
+
+.conclusion {
+    text-align: center;
+}
+
+.conclusion-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.conclusion-content h3 {
+    font-size: 42px;
+    font-weight: normal;
+
+    margin-bottom: 30px;
+}
+
+.conclusion-content p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 45px 5%;
+
+    background: #171b19;
+    color: #aaa;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+
+    .intro-grid,
+    .building-grid,
+    .plan-section,
+    .river-intro,
+    .mills,
+    .mill-plan {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .building-image {
+        min-height: 400px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .dark-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .plan-section {
+        margin-top: 70px;
+    }
+
+    .mill-plan {
+        padding: 35px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .section-title {
+        gap: 15px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .lead {
+        font-size: 21px;
+    }
+
+    .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .fact {
+        border-right: none;
+        border-bottom: 1px solid #4c504c;
+    }
+
+    .fact:last-child {
+        border-bottom: none;
+    }
+
+    .mill-card {
+        padding: 30px;
+    }
+
+    .dimensions {
+        grid-template-columns: 1fr;
+    }
+
+    .dimensions div {
+        border-right: none;
+        border-bottom: 1px solid #c5bcad;
+    }
+
+    .dimensions div:last-child {
+        border-bottom: none;
+    }
+
+    .mill-plan {
+        padding: 25px;
+    }
+
+    .mill-drawing {
+        min-height: 300px;
+    }
+}
