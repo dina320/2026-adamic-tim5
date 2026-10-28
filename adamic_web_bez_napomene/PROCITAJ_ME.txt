@@ -1,0 +1,11 @@
+ADAMIĆEVO DOBA — web stranica s 3D modelom
+
+Datoteke u ovom paketu:
+- index.html: glavna stranica
+- style.css: izgled stranice
+- historic_palazzo.obj: 3D model dobiven iz priloženog teksta
+
+VAŽNO:
+1. Drži sve tri datoteke u istoj mapi.
+2. Model se učitava pomoću Three.js biblioteke s interneta, zato je potrebna internetska veza.
+3. Za GitHub Pages prenesi sve tri datoteke u istu mapu repozitorija.
