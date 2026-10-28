@@ -328,6 +328,131 @@
 
     </main>
 
+    
+<section id="3d-model" style="padding: 40px 20px; text-align: center;">
+  <h2>3D model povijesne građevine</h2>
+  <p>Možeš okretati model mišem kako bi ga pogledala sa svih strana.</p>
+  <div id="model-viewer" style="width:100%; max-width:900px; height:500px; margin:auto; background:#e8e4dc; border-radius:12px; overflow:hidden;">
+    <p id="model-status" style="padding:30px;">Učitavanje 3D modela...</p>
+  </div>
+</section>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+
+const container = document.getElementById("model-viewer");
+const status = document.getElementById("model-status");
+
+try {
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#e8e4dc");
+
+  const camera = new THREE.PerspectiveCamera(
+    45, container.clientWidth / container.clientHeight, 0.1, 10000
+  );
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.innerHTML = "";
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.8));
+
+  const light = new THREE.DirectionalLight(0xffffff, 2.5);
+  light.position.set(5, 10, 8);
+  scene.add(light);
+
+  const loader = new OBJLoader();
+
+  loader.load(
+    "./historic_palazzo.obj",
+    (model) => {
+      const box = new THREE.Box3().setFromObject(model);
+      const center = box.getCenter(new THREE.Vector3());
+      const size = box.getSize(new THREE.Vector3());
+      const maxSize = Math.max(size.x, size.y, size.z);
+
+      if (!Number.isFinite(maxSize) || maxSize === 0) {
+        status.textContent = "Model nema prikazivu geometriju.";
+        return;
+      }
+
+      model.position.sub(center);
+
+      model.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: "#b69a78",
+            roughness: 0.85
+          });
+        }
+      });
+
+      scene.add(model);
+      camera.position.set(maxSize * 1.5, maxSize, maxSize * 1.8);
+      camera.lookAt(0, 0, 0);
+
+      let dragging = false;
+      let previousX = 0;
+      let previousY = 0;
+
+      renderer.domElement.style.cursor = "grab";
+      renderer.domElement.addEventListener("pointerdown", (event) => {
+        dragging = true;
+        previousX = event.clientX;
+        previousY = event.clientY;
+        renderer.domElement.setPointerCapture(event.pointerId);
+      });
+
+      renderer.domElement.addEventListener("pointerup", () => {
+        dragging = false;
+      });
+
+      renderer.domElement.addEventListener("pointermove", (event) => {
+        if (!dragging) return;
+        model.rotation.y += (event.clientX - previousX) * 0.01;
+        model.rotation.x += (event.clientY - previousY) * 0.01;
+        previousX = event.clientX;
+        previousY = event.clientY;
+      });
+
+      status.remove();
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+    },
+    undefined,
+    (error) => {
+      console.error(error);
+      status.textContent =
+        "Model se nije učitao. Provjeri postoji li historic_palazzo.obj u glavnoj mapi repozitorija.";
+    }
+  );
+
+  window.addEventListener("resize", () => {
+    if (!container.clientWidth) return;
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+} catch (error) {
+  console.error(error);
+  status.textContent = "Došlo je do greške pri pokretanju 3D prikaza.";
+}
+</script>
 
     <footer>
         <p>Arhitektonski pothvati Adamićeva doba</p>
