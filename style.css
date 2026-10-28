@@ -236,13 +236,15 @@ a {
    KAZALIŠTE
 ========================= */
 
+
 .building-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr;
+    gap: 30px;
 
-    align-items: center;
+    align-items: start;
 }
+
 
 .building-image {
     min-height: 570px;
