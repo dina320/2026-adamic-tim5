@@ -545,7 +545,7 @@ a {
 
     padding: 60px;
 
-    background: #29312d;
+    background: #1A2B50;
     color: #eeeae0;
 
     display: grid;
@@ -568,7 +568,7 @@ a {
 
     overflow: hidden;
 
-    background: #343c38;
+    background: #243A65;
 }
 
 .mill-building {
@@ -709,7 +709,7 @@ a {
 footer {
     padding: 45px 5%;
 
-    background: #171b19;
+    background: #0B132B;
     color: #aaa;
 
     display: flex;
